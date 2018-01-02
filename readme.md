@@ -1,7 +1,9 @@
 # Udacity IPND Final Project
 
 ## About This Program
-This is the final project in the Intro to Programming Nanodegree. In this project, we will practice interacting with a live database both from the command line and from our code. We will explore a large database with over a million rows. Finally, we will build and refine complex queries and use them to draw business conclusions from data.
+This is the final project in the Intro to Programming Nanodegree. In this project we will practice interacting with a live database both from the command line and from our code. We will explore a large database with over a million rows. Finally, we will build and refine complex queries and use them to draw business conclusions from data.
+
+This project makes use of the Linux-based virtual machine and the database that we're working with is running PostgreSQL. We will be using the psycopg2 Python module to connect to the database.
 
 
 ## Setup Requirements
@@ -22,6 +24,9 @@ python3 newsdata.py
 To run the virtual machine you will need to enter the command `vagrant up` followed by `vagrant ssh`.
 
 To connect to the database and load the data, `cd` into the `vagrant` directory and use the command `psql -d news -f newsdata.sql`.
+
+## Query Design
+Each question is answered using a single query execution. Multiple subqueries are used, some using the `from` keyword and others using `left join`.
 
 
 ## Expected Output
