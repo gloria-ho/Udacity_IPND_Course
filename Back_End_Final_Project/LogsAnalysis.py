@@ -1,14 +1,5 @@
 #!/usr/bin/python
 import psycopg2
-#adding this line
-'''
-adding multiple
-lines here
-more stuff
-stuff
-'''
-
-
 
 '''
 1. What are the most popular three articles of all time? Which articles have
