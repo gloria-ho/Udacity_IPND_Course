@@ -13,7 +13,11 @@ This project makes use of the same Linux-based virtual machine (VM). To run the 
 You will also need to download the data from https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip/. You will need to unzip the file and move `newsdata.sql` to the `vagrant` directory, which is shared with your virtual machine.
 
 ## How to Run
-To execute the program, run ```python3 newsdata.py``` from the command line.
+To execute the program, run 
+```
+python3 newsdata.py
+```
+ from the command line.
 
 To run the virtual machine you will need to enter the command `vagrant up` followed by `vagrant ssh`.
 
