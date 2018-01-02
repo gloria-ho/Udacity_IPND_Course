@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin//env python
 import psycopg2
 
 '''
@@ -8,12 +8,16 @@ most popular article at the top.
 '''
 query_one_question = 'What are the most popular three articles of all time?'
 # Store the query question
-query_one = (
-    "SELECT title, count(*) from log l "
-    "left join articles a "
-    "on substring (l.path, 10, length(a.slug)) = a.slug "
-    "where path like '%/article/%' group by title "
-    "order by count desc limit 3")
+query_one = ("""
+    SELECT title, count(*)
+    FROM log l 
+    LEFT JOIN articles a 
+    ON substring (l.path, 10, length(a.slug)) = a.slug 
+    WHERE path = concat('/article/', a.slug)
+    GROUP BY title 
+    ORDER BY count DESC 
+    LIMIT 3
+    """)
 
 '''
 2. Who are the most popular article authors of all time? That is, when you sum
@@ -21,16 +25,23 @@ up all of the articles each author has written, which authors get the most page
 views? Present this as a sorted list with the most popular author at the top.
 '''
 query_two_question = 'Who are the most popular article authors of all time?'
-query_two = (
-    "SELECT name, SUM(count) from "
-    "(SELECT slug, count(*), name from "
-    "(SELECT paSlug.path, paSlug.slug, aut.name from "
-    "(SELECT lo.path, art.slug, art.author from log lo "
-    "left join articles art "
-    "on substring (lo.path, 10, length(art.slug)) = art.slug "
-    "where path like '%/article/%') paSlug "
-    "left join authors aut on paSlug.author = aut.id) artNamed "
-    "group by slug, name) artCount group by name order by sum desc")
+query_two = ("""
+    SELECT name, SUM(count) 
+    FROM 
+    (SELECT slug, count(*), name 
+    FROM 
+    (SELECT paSlug.path, paSlug.slug, aut.name 
+    FROM 
+    (SELECT lo.path, art.slug, art.author 
+    FROM log lo 
+    LEFT JOIN articles art 
+    ON substring (lo.path, 10, length(art.slug)) = art.slug 
+    WHERE path = concat('/article/',slug)) paSlug 
+    LEFT JOIN authors aut ON paSlug.author = aut.id) artNamed 
+    GROUP BY slug, name) artCount 
+    GROUP BY name 
+    ORDER BY sum DESC
+    """)
 
 '''
 3. On which days did more than 1% of requests lead to errors? The log table
@@ -40,17 +51,30 @@ about the idea of HTTP status codes.)
 '''
 query_three_question = 'On which days did more than 1% of requests '\
     'lead to errors?'
-query_three = (
-    "SELECT d.date, round(errorCount.count/sum.sum*100,2) as percent "
-    "from (SELECT distinct substring(cast(time as text), 1, 10) as date "
-    "from log) d left join (SELECT date, sum(count) from "
-    "(SELECT date, status, count(*) from "
-    "(SELECT status, substring(cast(time as text), 1, 10) as date from log) a "
-    "group by date, status) b group by date) sum on d.date = sum.date "
-    "left join (SELECT substring(cast(log.time as text), 1, 10) as date, "
-    "count(*) as count from log where status = '404 NOT FOUND' "
-    "group by date) errorCount on d.date = errorCount.date "
-    "where (errorCount.count/sum.sum*100) > 1")
+query_three = ("""
+    SELECT d.date, round(errorCount.count/sum.sum*100,2) as percent 
+    FROM 
+    (SELECT distinct substring(cast(time as text), 1, 10) as date 
+    FROM log) d 
+    LEFT JOIN 
+    (SELECT date, sum(count) 
+    FROM 
+    (SELECT date, status, count(*) 
+    FROM 
+    (SELECT status, substring(cast(time as text), 1, 10) as date 
+    FROM log) a 
+    GROUP BY date, status) b 
+    GROUP BY date) sum 
+    ON d.date = sum.date 
+    LEFT JOIN 
+    (SELECT substring(cast(log.time as text), 1, 10) as date, 
+    count(*) as count 
+    FROM log 
+    WHERE status = '404 NOT FOUND' 
+    GROUP BY date) errorCount 
+    ON d.date = errorCount.date 
+    WHERE (errorCount.count/sum.sum*100) > 1
+    """)
 
 
 def connect():
@@ -85,17 +109,21 @@ def print_query_results(results):
 # Get the database connection and the cursor
 cur, conn = connect()
 
-# Execute and store query question and results
-query_one_results = query_one_question, execute_query(query_one, cur), ' hits'
-query_two_results = query_two_question, execute_query(query_two, cur), ' hits'
-query_three_results = query_three_question, execute_query(
-    query_three, cur), '% errors'
+if __name__ == "__main__":
+    # Execute only if run as a script
+    # Execute and store query question and results
+    query_one_results = query_one_question, execute_query(
+        query_one, cur), ' hits'
+    query_two_results = query_two_question, execute_query(
+        query_two, cur), ' hits'
+    query_three_results = query_three_question, execute_query(
+        query_three, cur), '% errors'
 
-# Print query results
-print_query_results(query_one_results)
-print_query_results(query_two_results)
-print_query_results(query_three_results)
-
+    # Print query results
+    print_query_results(query_one_results)
+    print_query_results(query_two_results)
+    print_query_results(query_three_results)
 
 # Close the database connection
 conn.close()
+
