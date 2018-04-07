@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<meta charset="UTF-8">
+	<title>My Notes</title>
+	<link rel="stylesheet" href="css/stageOneNotesStyle.css">
+</head>
+
+<body>
+
+	<div class="content">
+
+		<h1><u>Intro to Programming: Lesson Notes</u></h1>
+
+	 	<div class="unit">
+
+			<div class="welcome">
+				<h2>Welcome to Unit 1</h2>
+				<p>In this unit, we will cover the basics of the web:</p>
+					<div>
+						<ul>
+							<li><strong>The Web</strong> - What it is, what it looks like, and how the major pieces fit together.</li>
+							<li><strong>HTML</strong> - The main document type of the web.</li>
+							<li><strong>URLS</strong> - How you refer to documents on the web.</li>
+							<li><strong>HTTP</strong> - The protocol that unites the web, which the web runs on.</li>
+							<li><strong>Web Applications</strong> - What they are and how they fit into the big picture.</li>
+						</ul>
+					</div>
+			</div>
+
+			<div class="section">
+				<h3>Introduction to the Web</h3>
+				
+				<p>The world wide web is a collection of HTML documents. HTML is the basis for almost every web page. HTML is what glues everything together. The links between these pages are called <strong>hyperlinks</strong>. The components of the web are:</p>
+					<div>
+						<ul>
+							<li><strong>Browser</strong> - A program that runs on your computer to display files found on the web.</li>
+							<li><strong>Internet</strong> - The world's largest computer network.</li>
+							<li><strong>HTTP</strong> - The main protocol of the web.</li>
+							<li><strong>Servers</strong> - Computers that host the files that make up the web.</li>
+						</ul>
+					</div>
+			</div>
+
+			<div class="section">
+				<h3>HTML Basics</h3>
+				
+				<p>HTML stands for <em>Hypertext Markup Language</em>. HTML documents are the heart of the web and are made up of:</p>
+					<div>
+						<ul>
+							<li><strong>Text Content</strong> - what you see</li>
+							<li><strong>Markup</strong> - what it looks like</li>
+							<li><strong>References to Other Documents</strong> - e.g. images &amp; videos</li>
+							<li><strong>Links to Other Pages</strong></li>
+						</ul>
+					</div>
+				<p><a href="http://scratchpad.io/" target="new">Scratchpad</a> is a great, easy to use real-time HTML &amp; CSS editor.</p>
+			</div>
+
+			<div class="section">
+				<h3>Intro to HTML Tags</h3>
+				
+				<p>HTML markup is made up of HTML <strong>elements</strong>. Elements types are defined by <strong>tags</strong>. Tags generally look like this:</p>
+					<div class="tab"><span class="blue">&lt;tag&gt;</span><span class="red">content</span><span class="blue">&lt;/tag&gt;</span></div>
+				
+				<p>Contents in the element are surrounded by an opening tag and a closing tag. The opening and closing tags have the same name, except the closing tag has a slash (/) before the name to indicate it is a closing tag.</p>
+			</div>
+
+			<div class="section">
+				<h3>Computers Are Stupid</h3>
+				
+				<p>An important point about how computers understand instructions is that computers cannot make inferences based on context. Computers interpret language literally so it is important to keep in mind how sensitive computers can be to typo and small human mistakes. These small errors can lead to huge problems when given to a 'stupid' computer.</p>
+			</div>
+
+			<div class="section">
+				<h3>Adding Images</h3>
+				
+				<p>Using the image tag, you can reference an image on your website. An image tag looks like this:</p>
+					<div class="tab"><span class="blue">&lt;img src="<span class="red">url</span>" alt="<span class="red">text</span>"&gt;</span></div>
+				
+				<p>The attribute called 'alt' (alternate) is text that gets displayed in case the image doesn't load. Forgetting the 'alt' attribute will not break the page, but it is easy and courteous to include.</p>
+				
+				<p>One thing to note is that the image tag does not have a closing tag. This is called a <strong>void tag</strong>. A void tag has no content and therefore does not need a closing tag. Here is a sample image:</p>
+
+				<div class="margin"><img src="http://placehold.it/200x100" alt="sample_img"></div>
+			</div>
+
+			<div class="section">
+				<h3>It's OK to Forget</h3>
+				
+				<p>It might seem like you need to memorize every single tag, attribute, and property. However programming has too many facts to remember them all. You only need to have a solid understanding of a <em>few</em> big ideas and know how to get the details when you need them. There are plenty of resources online to help you out such as <a href="http://google.com" target="new">Google</a> and <a href="http://www.w3schools.com/" target="new">W3Schools Online Web Tutorials</a>.</p>
+			</div>
+
+			<div class="section">
+				<h3>Inline vs Block</h3>
+				
+				<p>HTML elements are either <strong>inline</strong> or <strong>block</strong>. These elements have different behavior.</p>
+				<p>An inline element occupies only the space of the content in the element. Some examples of inline elements are:</p>
+					<div>
+						<ul>
+							<li><span class="blue">&lt;b&gt;</span></li>
+							<li><span class="blue">&lt;em&gt;</span></li>
+							<li><span class="blue">&lt;a&gt;</span></li>
+							<li><span class="blue">&lt;span&gt;</span></li>
+							<li><span class="blue">&lt;br&gt;</span></li>
+							<li><span class="blue">&lt;img&gt;</span></li>
+						</ul>
+					</div>		
+				<p>Block elements actually create an invisible box around the content inside of them. This invisible box can have its own properties like height and width. Some examples of block elements are:</p>
+					<div>
+						<ul>
+							<li><span class="blue">&lt;p&gt;</span></li>
+							<li><span class="blue">&lt;div&gt;</span></li>
+							<li><span class="blue">&lt;h1&gt;</span></li>
+							<li><span class="blue">&lt;form&gt;</span></li>
+						</ul>
+					</div>
+			</div>
+
+			<div class="section">
+				<h3>Boxes and Containers?</h3>
+				<p><strong>Container elements</strong> are elements that do nothing but contain things inside themselves. These elements will be covered in the next lesson.</p>
+			</div>
+
+			<div class="section">
+				<h3>Document Structure</h3>
+				<p>The concept of code structure is a <em>very</em> important idea in computer programming. A huge part of well written code is structure. Code should be written so that people can read it easily.		</p>
+			</div>
+
+			<div>
+				<a href="#top" class="top">Back to top</a>
+			</div>
+
+		</div> <!--End of unit(1)-->
+
+
+	 	<div class="unit">
+
+			<div class="welcome">
+				<h2>Welcome to Unit 2</h2>
+				<p>In this unit, we will cover HTML structure:</p>
+					<div>
+						<ul>
+							<li><strong>Structured HTML</strong> - Why structure is important and how to code efficiently.</li>
+							<li><strong>Google Chrome Dev Tools</strong> - What it is and why it is a powerful tool.</li>
+							<li><strong>Div, Span, ID, and Class</strong> - What the purpose of these elements are and why to use it.</li>
+							<li><strong>Code Validation</strong> - Where to validate HTML, and why it is helpful.</li>
+						</ul>
+					</div>
+			</div>
+
+			<div class="section">
+				<h3>Google Chrome Development Tools</h3>
+				
+				<p>Otherwise known as "Dev Tools", Google Chrome Development Tools lets you take a look at the source code of a web page to better understand what is going on. It allows you to inspect and change the original code, but any changes are not saved. You can simply refresh the browser to reset to the original code. This is an extremely powerful learning tool as it allows you to view and analyze each element on the web page.
+			</div>
+
+			<div class="section">
+				<h3>Branching Tree-Like Structures</h3>
+
+				<p>When inspecting a page using Dev Tools, you can see that several elements are grouped together (such as the <span class="blue">&lt;body&gt;</span> tag). Sideways triangles mean there is a grouped HTML element. Upon expanding these groups, each element has an opening tag and a closing tag. These elements can enclose text, or another element (such as the <span class="blue">&lt;h1&gt;</span> or <span class="blue">&lt;div&gt;</span> tags). You can keep expanding deeper into these tags, much like the branches of a tree where each branch can split into additional smaller branches.</p>
+			</div>
+
+			<div class="section">
+				<h3>Indentation and Nesting Elements</h3>
+
+				<p>When writing HTML, it is important to use proper indentation. Much like how Chrome Dev Tools groups nested elements/branches with a triangle icon, you should always indent your HTML elements for readability. This makes the code easier to read and understand.</p>
+			</div>
+
+			<div class="section">
+				<h3>Div, Span, ID, and Class</h3>
+
+				<p>Div, span, ID, and class are tags used to provide structure to HTML and style using CSS. These tags are used as containers, holding other tags or content inside. Once structure in HTML, you can use CSS to style the tags. This is a great tool in eliminating repetition and writing good code.</p>
+			</div>
+
+			<div class="section">
+				<h3>HTML Validation</h3>
+
+				<p>A code validator is an online program that allows you to check your HTML code for syntax errors. Code validation cannot ensure that your web page appears the way you want it- but it can prevent syntax errors. Even if you don't understand the error massage, a validator can show you exactly which lines in the code you need to double check. You can input you code directly for <a href="https://validator.w3.org/#validate_by_input" target="new">HTML validation</a>.
+			</div>
+
+			<div>
+				<a href="#top" class="top">Back to top</a>
+			</div>
+
+		</div><!--End of unit(2)-->
+
+
+	 	<div class="unit">
+
+			<div class="welcome">
+				<h2>Welcome to Unit 3</h2>
+				<p>In this unit, we will cover adding CSS styling to your documents.</p>
+			</div>
+
+			<div class="section">
+				<h3>CSS Styling</h3>
+
+				<p>CSS stands for Cascading Style Sheets and allows you to give your page style (colors, shapes, fonts, etc.) You can apply CSS elements to entire HTML classes. You can embed your CSS inside the &lt;head&gt; tags of a document, or you can attach a separate file where you define the styles externally.</p>
+			</div>
+
+			<div class="section">
+				<h3>Why use CSS styling?</h3>
+				
+				<p>CSS allows you to define styles in one place that you can reference more than once. This is a powerful and efficient tool to eliminate repetition. Using one style sheet also helps make maintenance and site-wide updates much easier.</p>
+			</div>
+
+			<div class="section">
+				<h3>CSS Validation</h3>
+
+				<p>It is also helpful to <a href="https://jigsaw.w3.org/css-validator/#validate_by_input" target="new"> validate CSS</a> to avoid syntax errors.
+			</div>
+
+			<div>
+				<a href="#top" class="top">Back to top</a>
+			</div>
+
+		</div><!--End of unit(3)-->
+
+
+	</div><!--End of content-->
+
+</body>
+</html>
